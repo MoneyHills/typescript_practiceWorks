@@ -36,7 +36,21 @@ function comparePower(item1: MagicalItem, item2: MagicalItem){
 }
 
 // Generic class for inventory
+class Inventory <T> {
+    private items: T[]
 
+    constructor() {
+        this.items = []
+    }
+
+    add(item: T){
+        this.items.push(item)
+    }
+
+    getAll(){
+        return this.items
+    }
+}
 
 // Example items
 
@@ -46,9 +60,14 @@ const helmetOfWisdom = new MagicalItem('Helmet of Wisdom', 'armor', 890, false)
 
 
 // Create inventory and add items
+const magicalInventory = new Inventory<MagicalItem>()
+magicalInventory.add(bootsOfSpeed)
+magicalInventory.add(helmetOfWisdom)
 
 // Display all item info
-
+for (const item of magicalInventory.getAll()){
+    item.displayInfo()
+}
 
 // Compare power levels
 const powerfulName = comparePower(bootsOfSpeed, helmetOfWisdom)
