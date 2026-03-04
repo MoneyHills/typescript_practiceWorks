@@ -27,7 +27,13 @@ class MagicalItem implements IMagicalItem {
 }
 
 // Function to compare power levels of two items
-
+function comparePower(item1: MagicalItem, item2: MagicalItem){
+    if (item1.powerLevel > item2.powerLevel){
+        return item1.name
+    } else {
+        return item2.name
+    }
+}
 
 // Generic class for inventory
 
@@ -35,7 +41,8 @@ class MagicalItem implements IMagicalItem {
 // Example items
 
 const bootsOfSpeed = new MagicalItem('Boots of Speed', 'armor', 900, true)
-bootsOfSpeed.displayInfo()
+const helmetOfWisdom = new MagicalItem('Helmet of Wisdom', 'armor', 890, false)
+
 
 
 // Create inventory and add items
@@ -44,6 +51,8 @@ bootsOfSpeed.displayInfo()
 
 
 // Compare power levels
+const powerfulName = comparePower(bootsOfSpeed, helmetOfWisdom)
+console.log('powerful Name is: ', powerfulName);
 
 
 // Access property using keyof
